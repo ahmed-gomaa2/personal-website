@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Rubik:wght@300&display=swap');
+@import 'root.css';
 
 * {
     padding: 0;
@@ -10,9 +11,9 @@
 }
 
 body {
-    background: black;
+    background: var(--background);
     /*height: 10000px;*/
-    font-family: 'Rubik', sans-serif;
+    font-family: var(--main-family);
     /*overflow-x: hidden;*/
 }
 
@@ -69,7 +70,7 @@ section {
 .Loading__logo-ap {
     font-size: 100px;
     color: black;
-    font-family: 'Recursive', sans-serif;
+    font-family: var(--main-family);
     font-weight: 400;
 }
 
@@ -175,7 +176,7 @@ section {
 .Header__logo-ap {
     font-size: 50px;
     color: white;
-    font-family: 'Recursive', sans-serif;
+    font-family: var(--main-family);
     font-weight: 400;
 }
 
@@ -197,7 +198,7 @@ section {
     justify-content: space-between;
     gap: 4px;
     display: none;
-    background-color: transparent;
+    background-color: black;
     cursor: pointer;
     position: relative;
 }
@@ -233,7 +234,7 @@ section {
 }
 
 .Header__nav-link {
-    color: #FF2744;
+    color: var(--main-color);
     padding: 10px 20px;
     position: relative;
     display: inline-block;
@@ -291,7 +292,7 @@ section {
 }
 
 .Header__nav-cancel i {
-    color: red;
+    color: var(--main-color);
     cursor: pointer;
 }
 
@@ -411,7 +412,7 @@ section {
 }
 
 .Main__container {
-    width: 70%;
+    /*width: 70%;*/
     margin: auto;
     height: calc(100vh - 100px);
     display: flex;
@@ -429,7 +430,7 @@ section {
 
 .Main__greetings {
     font-size: 20px;
-    font-family: 'Rubik', sans-serif;
+    font-family: var(--main-family);
     font-weight: 200;
     color: #e6a7e6;
     text-transform: capitalize;
@@ -454,12 +455,12 @@ section {
 
 .Main__name h1 {
     font-size: 50px;
-    font-family: 'Rubik', sans-serif;
+    font-family: var(--main-family);
     font-weight: 800;
 }
 
 .Main__name span {
-    color: #FF2744;
+    color: var(--main-color);
 }
 
 .Main__title {
@@ -473,13 +474,13 @@ section {
 
 .Main__title p {
     color: white;
-    font-family: 'Rubik', sans-serif;
+    font-family: var(--main-family);
     text-transform: capitalize;
     font-size: 20px;
 }
 
 .Main__title span {
-    color: #FF2744;
+    color: var(--main-color);
 }
 
 .Main__cv {
@@ -487,17 +488,16 @@ section {
     position: relative;
     top: 30px;
     animation: fadeIn 0.5s forwards 0.9s;
-
 }
 
 .Main__cv a {
-    background-color: #FF254B;
+    background-color: var(--main-color);
     font-size: 18px;
     text-transform: capitalize;
     color: white;
-    font-family: 'Rubik', sans-serif;
+    font-family: var(--main-family);
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 1px;
     transition: 0.3s;
     margin-right: 20px;
 }
@@ -524,7 +524,7 @@ section {
     justify-content: center;
 }
 
-.Main__right img {
+.Main__img img {
     width: 400px;
     height: 400px;
     opacity: 0;
@@ -537,7 +537,6 @@ section {
 @media (max-width: 950px) {
     .Main__greetings {
         font-size: 17px;
-
     }
     .Main__name h1 {
         font-size: 30px;
@@ -550,6 +549,31 @@ section {
     .Main__cv a {
         font-size: 18px;
     }
+}
+
+@media (max-width: 470px) {
+    .Main__cv a {
+        font-size: 13px;
+        margin-right: 5px;
+        padding: 5px 7px;
+    }
+
+    .Main__name h1 {
+        font-size: 18px;
+    }
+
+    .Main__greetings p {
+        font-size: 16px;
+    }
+
+    .Main__title p {
+        font-size: 16px;
+    }
+
+    .Main__name-middle {
+        display: none;
+    }
+
 }
 
 /*********************************************************************************/
@@ -593,7 +617,7 @@ section {
 .About__overlay {
     width: 100%;
     height: 100%;
-    border: 1px solid #FF254B;
+    border: 1px solid var(--main-color);
     transform: translate(20px, 20px);
     position: absolute;
     top: 0;
@@ -601,7 +625,7 @@ section {
     z-index: 0;
     transition: 0.2s;
     border-radius: 5px;
-    background-color: #FF254B;
+    background-color: var(--main-color);
 }
 
 .About__img {
@@ -665,7 +689,7 @@ section {
 }
 
 .About__header span {
-    color: #d30000;
+    color: var(--main-color);
 }
 
 .About__desc {
@@ -679,7 +703,7 @@ section {
     font-size: 17px;
     line-height: 25px;
     margin-bottom: 20px;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--main-family);
 }
 
 .About__skills h4 {
@@ -688,6 +712,7 @@ section {
     opacity: 0;
     position: relative;
     top: 30px;
+    font-size: 18px;
 }
 
 .About__skills-container {
@@ -710,7 +735,7 @@ section {
 }
 
 .About__skill i {
-    color: #FF254B;
+    color: var(--main-color);
 }
 
 @media (max-width: 1200px) {
@@ -739,6 +764,20 @@ section {
 
     .About__img {
         width: 300px;
+    }
+}
+
+@media (max-width: 470px) {
+    .About__img img {
+        width: 100%;
+    }
+
+    .About__img-overlay {
+        /*display: none;*/
+    }
+
+    .About__overlay {
+        display: none;
     }
 }
 
@@ -787,7 +826,7 @@ section {
 }
 
 .Projects__header h2 span {
-    color: #FF254B;
+    color: var(--main-color);
 }
 
 .Projects__header h2::after {
@@ -816,19 +855,19 @@ section {
 }
 
 .Projects__nav-item--active {
-    background: #FF254B;
+    background: var(--main-color);
     color: white !important;
 }
 
 .Projects__nav-item:hover .Projects__nav-item--active{
-    background: #FF254B;
+    background: var(--main-color);
     color: white !important;
 }
 
 .Projects__nav-items span {
     padding: 5px 10px;
     border: 1px solid rgba(255, 255, 255, 0.5);
-    color: #FF254B;
+    color: var(--main-color);
     cursor: pointer;
     margin-bottom: 20px;
     transition: 0.3s;

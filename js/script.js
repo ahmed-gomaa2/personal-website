@@ -10,9 +10,9 @@ function renderUI() {
                 <div class="Header__logo">
                     <h1 class="Header__logo-h2"><span class="Header__logo-ap">AG</span> <span class="Header__logo-fn">ahmed gomaa</span></h1>
                 </div> <!-- /Header__logo -->
-                <button class="Header__nav-toggle Header__hidden">
+                <div class="Header__nav-toggle Header__hidden">
                     <span></span><span></span><span></span>
-                </button>
+                </div>
                 <div class="Header__nav-overlay"></div>
                 <div class="Header__nav">
                     <ul class="Header__nav-list">
@@ -29,20 +29,20 @@ function renderUI() {
         </header> <!-- /Header -->
         <!-- ************************************************************* -->
         <main class="Main">
-            <div class="Main__container">
+            <div class="Main__container col-lg-8 col-md-9 col-10">
                 <div class="Main__left">
                     <div class="Main__left-container">
                         <div class="Main__greetings">
                             <p>hello, my name is</p>
                         </div> <!-- /Main__greetings -->
                         <div class="Main__name">
-                            <h1>ahmed <span>abu el-ghiet gomaa</span></h1>
+                            <h1>ahmed <span><span class="Main__name-middle">abu el-ghiet</span> gomaa</span></h1>
                         </div> <!-- /Main__name -->
                         <div class="Main__title">
                             <p>I'm <span>full stack</span> javascript developer</p>
                         </div> <!-- /Main__title -->
                         <div class="Main__cv">
-                            <a href="files/cv.pdf">download cv</a>
+                            <a  href="files/cv.pdf">download cv</a>
                             <a class="Main__cv-contact" href="mailto: engahmedgomaa97@gmail.com">contact</a>
                         </div> <!-- /Main__cv -->
                     </div> <!-- /Main__left-container -->
