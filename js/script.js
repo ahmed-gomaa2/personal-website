@@ -242,7 +242,7 @@ function renderUI() {
 
         const animatedAbout = new IntersectionObserver(aboutObserver, {
             root: null,
-            rootMargin: '-150px',
+            rootMargin: '-50px',
             threshold: 0
         });
 
@@ -445,7 +445,7 @@ function renderUI() {
 
                 const animatedProject = new IntersectionObserver(projectObserver, {
                     root: null,
-                    rootMargin: '-100px',
+                    rootMargin: '-50px',
                     threshold: 0,
                     count: count
                 });
