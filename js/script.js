@@ -5,7 +5,7 @@ function renderUI() {
         const bodyMarkup = `
             <div class="Intersecting"></div>
 
-        <header class="Header">
+        <header class="Header__section">
             <div class="Header__container">
                 <div class="Header__logo">
                     <h1 class="Header__logo-h2"><span class="Header__logo-ap">AG</span> <span class="Header__logo-fn">ahmed gomaa</span></h1>
@@ -56,7 +56,7 @@ function renderUI() {
         <section class="About">
             <div class="About__container mx-auto col-lg-8 col-md-9 col-10">
                 <div class="About__left">
-                    <div class="About__header">
+                    <div class="About__header Header">
                         <h2><span>01.</span> about me</h2>
                     </div> <!-- /About__header -->
                     <div class="About__desc">
@@ -88,7 +88,7 @@ function renderUI() {
         </section> <!-- /About -->
         <section class="Projects">
             <div class="Projects__container mx-auto col-lg-8 col-md-9 col-10">
-                <div class="Projects__header">
+                <div class="Projects__header Header">
                     <h2><span>02.</span> Projects</h2>
                 </div> <!-- /Projects__header -->
                 <div class="Projects__nav mx-auto mb-3 col-lg-10 col-md-11 col-12 d-flex justify-content-center">
@@ -157,6 +157,41 @@ function renderUI() {
                 </div> <!-- /Projects__items -->
             </div> <!-- /Projects__container -->
         </section> <!-- /Projects -->
+        <section class="Services w-100 ">
+            <div class="Services__container py-3 mx-auto col-lg-8 col-md-9 col-10">
+                <div class="Services__header Header">
+                    <h2><span>04.</span> services</h2>
+                </div> <!-- /Services__header -->
+
+                <div class="Services__items row">
+                    <div class="Services__item col-md-4 col-sm-6 col-xs-8 mb-5">
+                        <div class="card p-2">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted text-center"><i class="fab fa-node-js Services__icon text-success"></i></h6>
+                                <p class="text-center p-0 m-0">NodeJS</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Services__item col-sm col-md-4 col-sm-6 col-xs-10 mb-5">
+                        <div class="card p-2">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted text-center"><i class="fab fa-react Services__icon text-primary "></i></h6>
+                                <p class="text-center p-0 m-0">ReactJS</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Services__item col-sm col-md-4 col-sm-6 col-xs-10 mb-5">
+                        <div class="card p-2">
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted text-center"><i class="fab fa-js Services__icon"  style="color: yellow"></i></h6>
+                                <p class="text-center p-0 m-0">Vanilla JS</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- /Services__container -->
+        </section> <!-- /Services-->
     `;
 
         document.body.insertAdjacentHTML('afterbegin', bodyMarkup);
@@ -164,7 +199,7 @@ function renderUI() {
         const navBtn = document.querySelector('.Header__nav-toggle');
         const nav = document.querySelector('.Header__nav');
         const headerOverlay = document.querySelector('.Header__nav-overlay');
-        const header = document.querySelector('.Header');
+        const header = document.querySelector('.Header__section');
         const headerContainer = document.querySelector('.Header__container');
         const int = document.querySelector('.Intersecting');
         const navLinks = document.querySelectorAll('.Header__nav-item');
@@ -231,7 +266,6 @@ function renderUI() {
             const [entry] = entries;
             if(!entry.isIntersecting) return;
             aboutSection.classList.remove('section--hidden');
-            aboutSection.querySelector('.About__header').style.animation = 'fadeIn 0.5s forwards 0.2s';
             aboutSection.querySelector('.About__desc').style.animation = 'fadeIn 0.5s forwards 0.3s';
             aboutSection.querySelector('.About__skills h4').style.animation = 'fadeIn 0.5s forwards 0.4s';
             aboutSection.querySelector('.About__right').style.animation = 'fadeIn 0.5s forwards 0.5s';
@@ -280,7 +314,7 @@ function renderUI() {
                 fullstack: false,
                 js: false
             },{
-                id: 1,
+                id: 3,
                 name: 'techno',
                 link: 'https://ahmed-gomaa2.github.io/techno/',
                 github: 'https://github.com/ahmed-gomaa2/techno/',
@@ -290,6 +324,21 @@ function renderUI() {
                 css3: true,
                 html: true,
                 html5: true,
+                react: false,
+                fullstack: false,
+                js: true
+            },
+            {
+                id: 4,
+                name: 'pricing',
+                link: 'https://ahmed-gomaa2.github.io/pricing/',
+                github: 'https://github.com/ahmed-gomaa2/pricing.git',
+                img: 'images/projects/pricing.jpg',
+                responsive: false,
+                css: true,
+                css3: false,
+                html: true,
+                html5: false,
                 react: false,
                 fullstack: false,
                 js: true
@@ -464,6 +513,93 @@ function renderUI() {
                 }
             });
         }
+
+        (function (){
+            const headers = document.querySelectorAll('.Header');
+            headers.forEach((h, i) => {
+                const headerObserver = enteries => {
+                    const [entry] = enteries;
+
+                    if(!entry.isIntersecting) return;
+                    h.style.animation = 'fade-in 0.5s forwards';
+                }
+
+                const animatedHeader = new IntersectionObserver(headerObserver, {
+                    root: null,
+                    rootMargin: '-50px',
+                    threshold: 0
+                });
+                animatedHeader.observe(h);
+            })
+        })();
+
+        (function () {
+            const servicesElements = document.querySelectorAll('.Services__item');
+            let count = 0, offsetTop = undefined;
+
+            servicesElements.forEach((p, i) => {
+                const animation = `fade-in 0.5s forwards ${(count + 2)*0.1}s`;
+                const serviceObserver = (entries) => {
+                    const [entry] = entries;
+                    if(!entry.isIntersecting) return;
+                    // p.classList.remove('section--hidden');
+                    p.style.animation = animation;
+                }
+
+                const animatedService = new IntersectionObserver(serviceObserver, {
+                    root: null,
+                    rootMargin: '-50px',
+                    threshold: 0,
+                });
+                animatedService.observe(p);
+                // p.classList.add('section--hidden');
+                const offsetOfThis = p.offsetTop;
+
+                if(offsetTop == undefined) {
+                    offsetTop = offsetOfThis;
+                }
+                if(offsetTop != offsetOfThis) {
+                    count = 0;
+                    offsetTop = undefined;
+                }else {
+                    count++;
+                }
+            });
+        })();
+
+        (function () {
+            const filtersElements = document.querySelectorAll('.Projects__filter');
+            let count = 0, offsetTop = undefined;
+
+            filtersElements.forEach((p, i) => {
+                const animation = `fade-in 0.5s forwards ${(count + 2)*0.1}s`;
+                const serviceObserver = (entries) => {
+                    const [entry] = entries;
+                    if(!entry.isIntersecting) return;
+                    // p.classList.remove('section--hidden');
+                    p.style.animation = animation;
+                }
+
+                const animatedService = new IntersectionObserver(serviceObserver, {
+                    root: null,
+                    rootMargin: '-50px',
+                    threshold: 0,
+                });
+                animatedService.observe(p);
+                // p.classList.add('section--hidden');
+                const offsetOfThis = p.offsetTop;
+
+                if(offsetTop == undefined) {
+                    offsetTop = offsetOfThis;
+                }
+                if(offsetTop != offsetOfThis) {
+                    count = 0;
+                    offsetTop = undefined;
+                }else {
+                    count++;
+                }
+            });
+        })();
     }, 2000);
 }
 
