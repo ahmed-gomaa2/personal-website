@@ -160,7 +160,7 @@ function renderUI() {
         <section class="Services w-100 ">
             <div class="Services__container py-3 mx-auto col-lg-8 col-md-9 col-10">
                 <div class="Services__header Header">
-                    <h2><span>04.</span> services</h2>
+                    <h2><span>03.</span> services</h2>
                 </div> <!-- /Services__header -->
 
                 <div class="Services__items row">
