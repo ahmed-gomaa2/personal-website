@@ -703,7 +703,7 @@ function renderUI() {
                         subject: subjectInput.value
                     };
 
-                    fetch('http://localhost:8080/send-email', {
+                    fetch('https://contact-api-app.onrender.com/send-email', {
                         method: 'POST',
                         mode: "cors", // no-cors, *cors, same-origin
                         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
