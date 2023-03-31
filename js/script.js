@@ -163,12 +163,12 @@ function renderUI() {
                     <h2><span>03.</span> services</h2>
                 </div> <!-- /Services__header -->
 
-                <div class="Services__items row">
+                <div class="Services__items row col-10 mx-auto">
                     <div class="Services__item col-md-4 col-sm-6 col-xs-8 mb-5">
                         <div class="card p-2">
                             <div class="card-body">
                                 <h6 class="card-subtitle mb-2 text-muted text-center"><i class="fab fa-node-js Services__icon text-success"></i></h6>
-                                <p class="text-center p-0 m-0">NodeJS</p>
+                                <p class="text-center p-0 m-0">Node</p>
                             </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@ function renderUI() {
                         <div class="card p-2">
                             <div class="card-body">
                                 <h6 class="card-subtitle mb-2 text-muted text-center"><i class="fab fa-react Services__icon text-primary "></i></h6>
-                                <p class="text-center p-0 m-0">ReactJS</p>
+                                <p class="text-center p-0 m-0">React</p>
                             </div>
                         </div>
                     </div>
@@ -184,7 +184,7 @@ function renderUI() {
                         <div class="card p-2">
                             <div class="card-body">
                                 <h6 class="card-subtitle mb-2 text-muted text-center"><i class="fab fa-js Services__icon"  style="color: yellow"></i></h6>
-                                <p class="text-center p-0 m-0">Vanilla JS</p>
+                                <p class="text-center p-0 m-0">JS</p>
                             </div>
                         </div>
                     </div>
@@ -192,6 +192,36 @@ function renderUI() {
                 </div>
             </div> <!-- /Services__container -->
         </section> <!-- /Services-->
+                <section class="Contact pb-3 w-100">
+            <div class="Contact__container py-3 mx-auto col-lg-8 col-md-9 col-10">
+                <div class="Contact__header Header">
+                    <h2><span>0.4</span> contact me</h2>
+                </div> <!-- /Contact__header -->
+                <form class="Contact__form w-100 row m-0" enctype="text/plain">
+                    <div class="Contact__element col-md-6 pl-0">
+                        <label for="name">Name: </label>
+                        <input id="name" class="Contact__input Contact__name" type="text" name="name" placeholder="name*" >
+                    </div>
+                    <div class="Contact__element col-md-6 pl-0">
+                        <label for="email">Email:</label>
+                        <input id="email" class="Contact__input Contact__email" type="email" name="email" placeholder="email*">
+                    </div>
+                    <div class="Contact__element col-md-6 pl-0">
+                        <label for="phone">Phone:</label>
+                        <input id="phone" class="Contact__input Contact__phone" type="text" name="phone" placeholder="phone*">
+                    </div>
+                    <div class="Contact__element col-md-6 pl-0">
+                        <label for="subject">Subject:</label>
+                        <input id="subject" class="Contact__input Contact__subject" type="text" name="subject" placeholder="subject*">
+                    </div>
+                    <div class="Contact__element col-12 pl-0">
+                        <label for="message">Message:</label>
+                        <textarea id="message" class="Contact__input Contact__message " name="message" rows="4" placeholder="message*"></textarea>
+                    </div>
+                    <button class="Contact__btn Contact__element" type="submit" >Submit</button>
+                </form> <!-- Contact__form -->
+            </div> <!-- /Contact__container -->
+        </section> <!-- /Contact -->
     `;
 
         document.body.insertAdjacentHTML('afterbegin', bodyMarkup);
@@ -341,7 +371,7 @@ function renderUI() {
                 html5: false,
                 react: false,
                 fullstack: false,
-                js: true
+                js: false
             }
         ];
 
@@ -526,7 +556,7 @@ function renderUI() {
 
                 const animatedHeader = new IntersectionObserver(headerObserver, {
                     root: null,
-                    rootMargin: '-50px',
+                    rootMargin: '0px',
                     threshold: 0
                 });
                 animatedHeader.observe(h);
@@ -548,7 +578,7 @@ function renderUI() {
 
                 const animatedService = new IntersectionObserver(serviceObserver, {
                     root: null,
-                    rootMargin: '-50px',
+                    rootMargin: '0px',
                     threshold: 0,
                 });
                 animatedService.observe(p);
@@ -600,6 +630,99 @@ function renderUI() {
                 }
             });
         })();
+
+        (function () {
+            const inputElements = document.querySelectorAll('.Contact__element');
+            let count = 0, offsetTop = undefined;
+
+            inputElements.forEach((p, i) => {
+                const animation = `fade-in 0.5s forwards ${(count + 2)*0.1}s`;
+                const serviceObserver = (entries) => {
+                    const [entry] = entries;
+                    if(!entry.isIntersecting) return;
+                    // p.classList.remove('section--hidden');
+                    p.style.animation = animation;
+                }
+
+                const animatedService = new IntersectionObserver(serviceObserver, {
+                    root: null,
+                    rootMargin: '-50px',
+                    threshold: 0,
+                });
+                animatedService.observe(p);
+                // p.classList.add('section--hidden');
+                const offsetOfThis = p.offsetTop;
+
+                if(offsetTop == undefined) {
+                    offsetTop = offsetOfThis;
+                }
+                if(offsetTop != offsetOfThis) {
+                    count = 0;
+                    offsetTop = undefined;
+                }else {
+                    count++;
+                }
+            });
+        })();
+
+        (function (){
+            const button = document.querySelector('.Contact__btn');
+            const nameInput = document.querySelector('.Contact__name');
+            const emailInput = document.querySelector('.Contact__email');
+            const phoneInput = document.querySelector('.Contact__phone');
+            const messageInput = document.querySelector('.Contact__message');
+            const subjectInput = document.querySelector('.Contact__subject');
+            button.onclick = sendEmail;
+            const spinnerMarkup = `
+                <i class="fas fa-circle-notch Contact__spinner"></i>
+            `;
+
+            function sendEmail(e) {
+                e.preventDefault();
+
+                let valid = true;
+
+                document.querySelectorAll('.Contact__input').forEach(input => {
+                    if (input.value === '') {
+                        console.log('empty');
+                        input.classList.add('Contact__input-empty');
+                        valid = false;
+                    } else {
+                        input.classList.remove('Contact__input-empty');
+                    }
+                });
+
+                if (valid) {
+                    button.innerHTML = spinnerMarkup;
+
+                    const body = {
+                        name: nameInput.value,
+                        email: emailInput.value,
+                        phone: phoneInput.value,
+                        message: messageInput.value,
+                        subject: subjectInput.value
+                    };
+
+                    fetch('http://localhost:8080/send-email', {
+                        method: 'POST',
+                        mode: "cors", // no-cors, *cors, same-origin
+                        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                        credentials: "same-origin", // include, *same-origin, omit
+                        headers: {
+                            "Content-Type": "application/json",
+                            // 'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: JSON.stringify(body)
+                    }).then(res => {
+                        button.innerHTML = 'Submit';
+                        console.log(res);
+                    })
+                } else {
+                    return;
+                }
+            }
+        })();
+
     }, 2000);
 }
 
