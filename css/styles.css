@@ -37,6 +37,28 @@ section {
     transform: translateY(8rem);
 }
 
+/******************************** Alert section ********************************/
+
+.Alerts {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 100000;
+}
+
+.Alert {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.Alert__success {
+    background: #00ff00;
+}
+
+.Alert__danger {
+    background: red;
+}
+
 /* ============================== Loading section =============================*/
 
 .Loading {
@@ -1064,25 +1086,3 @@ section {
         transform: rotate(360deg);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,10 +1,10 @@
 
-function renderUI() {
+(function () {
     setTimeout(() => {
-        console.log('First');
-        const bodyMarkup = `
-            <div class="Intersecting"></div>
 
+        const bodyMarkup = `
+        <div class="Alerts"></div>
+        <div class="Intersecting"></div>
         <header class="Header__section">
             <div class="Header__container">
                 <div class="Header__logo">
@@ -223,7 +223,6 @@ function renderUI() {
             </div> <!-- /Contact__container -->
         </section> <!-- /Contact -->
     `;
-
         document.body.insertAdjacentHTML('afterbegin', bodyMarkup);
 
         const navBtn = document.querySelector('.Header__nav-toggle');
@@ -665,6 +664,9 @@ function renderUI() {
             });
         })();
 
+        let alerts = [];
+        const alertSection = document.querySelector('.Alerts');
+
         (function (){
             const button = document.querySelector('.Contact__btn');
             const nameInput = document.querySelector('.Contact__name');
@@ -716,6 +718,16 @@ function renderUI() {
                     }).then(res => {
                         button.innerHTML = 'Submit';
                         console.log(res);
+                        alerts.push({
+                                id: alerts.length - 1 >= 0 ? alerts.length - 1 + 1 : 0,
+                                message: 'Message sent successfully',
+                                type: 'success'
+                            });
+                        console.log(alerts);
+                        renderAlert(alerts);
+                        document.querySelectorAll('.Contact__input').forEach(i => {
+                            i.value = '';
+                        });
                     })
                 } else {
                     return;
@@ -723,11 +735,26 @@ function renderUI() {
             }
         })();
 
+        function renderAlert(alerts) {
+            console.log(alertSection)
+            alertSection.innerHTML = '';
+            alerts.map(alert => {
+                const markup = `
+                    <p class='Alert Alert__${alert.type}'>${alert.message}</p>
+                `;
+                alertSection.insertAdjacentHTML('beforeend', markup);
+
+                setTimeout(() => {
+                    alerts = alerts.filter(al => al.id !== alert.id);
+
+                    renderAlert(alerts);
+                }, 5000)
+            });
+        }
+
+        renderAlert(alerts);
     }, 2000);
-}
-
-renderUI();
-
+})();
 
 
 
