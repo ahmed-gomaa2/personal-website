@@ -1065,7 +1065,7 @@ section {
     border: 1px solid #3e3eea;
     padding: 5px 10px;
     cursor: pointer;
-    outline: none;
+    outline: none !important;
 }
 
 .Contact__btn:hover {
@@ -1075,6 +1075,10 @@ section {
 
 .Contact__input-empty {
     border: 1px solid var(--main-color) !important;
+}
+
+.Contact__error-message {
+    color: var(--main-color);
 }
 
 @keyframes spin  {

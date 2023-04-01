@@ -686,11 +686,26 @@
 
                 document.querySelectorAll('.Contact__input').forEach(input => {
                     if (input.value === '') {
-                        console.log('empty');
                         input.classList.add('Contact__input-empty');
                         valid = false;
+                        const parentElement = input.parentElement;
+                        const errorElement = parentElement.querySelector('.Contact__error-message');
+                        console.log(errorElement)
+                        if(!errorElement) {
+                            const messageMarkup = `
+                                <p class="Contact__error-message">This is required!</p>
+                            `;
+                            parentElement.insertAdjacentHTML('beforeend', messageMarkup);
+                            console.log('exists');
+                        }else {
+                            return;
+                        }
                     } else {
                         input.classList.remove('Contact__input-empty');
+                        const parentElement = input.parentElement;
+                        const errorElement = parentElement.querySelector('.Contact__error-message');
+                        if(!errorElement) return;
+                        parentElement.removeChild(errorElement);
                     }
                 });
 
