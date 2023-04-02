@@ -736,9 +736,8 @@
                         body: JSON.stringify(body)
                     }).then(res => {
                         button.disabled = false;
-                        sent = true;
                         button.innerHTML = 'Submit';
-                        console.log(res);
+                        sent = true;
                         alerts.push({
                                 id: alerts.length - 1 >= 0 ? alerts.length - 1 + 1 : 0,
                                 message: 'Message sent successfully',

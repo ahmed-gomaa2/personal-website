@@ -461,7 +461,7 @@ section {
     font-size: 20px;
     font-family: var(--main-family);
     font-weight: 200;
-    color: #e6a7e6;
+    color: white;
     text-transform: capitalize;
     margin-bottom: 20px;
     word-spacing: 5px;
@@ -488,9 +488,9 @@ section {
     font-weight: 800;
 }
 
-.Main__name span {
-    color: var(--main-color);
-}
+/*.Main__name span {*/
+/*    color: var(--main-color);*/
+/*}*/
 
 .Main__title {
     color: white;
