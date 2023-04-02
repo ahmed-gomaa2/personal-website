@@ -60,7 +60,8 @@ section {
 }
 
 .Alert__warning {
-    background: orange;
+    background: blue;
+    color: white;
 }
 
 /* ============================== Loading section =============================*/
@@ -1075,6 +1076,11 @@ section {
 .Contact__btn:hover {
     background: rgba(255, 255, 255, 0.2);
     transition: 0.3s;
+}
+
+.Contact__btn:disabled {
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .Contact__input-empty {

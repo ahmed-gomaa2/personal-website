@@ -710,6 +710,7 @@
                 });
 
                 if (valid) {
+                    button.disabled = true;
                     button.innerHTML = spinnerMarkup;
 
                     const body = {
@@ -722,6 +723,8 @@
 
                     let sent = false;
 
+                    console.log(this);
+
                     fetch('https://contact-api-app.onrender.com/send-email', {
                         method: 'POST',
                         mode: "cors",
@@ -732,6 +735,7 @@
                         },
                         body: JSON.stringify(body)
                     }).then(res => {
+                        button.disabled = false;
                         sent = true;
                         button.innerHTML = 'Submit';
                         console.log(res);
@@ -749,7 +753,7 @@
                         if(!sent) {
                             alerts.push(
                                 {
-                                    message: 'Please wait for the server to wake up!',
+                                    message: 'Please wait for the server to wake up!😊',
                                     type: 'warning'
                                 }
                             );
