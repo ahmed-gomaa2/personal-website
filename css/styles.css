@@ -59,6 +59,10 @@ section {
     background: red;
 }
 
+.Alert__warning {
+    background: orange;
+}
+
 /* ============================== Loading section =============================*/
 
 .Loading {
@@ -1085,7 +1089,6 @@ section {
     from {
         transform: none;
     }
-
     to {
         transform: rotate(360deg);
     }

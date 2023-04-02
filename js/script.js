@@ -720,17 +720,19 @@
                         subject: subjectInput.value
                     };
 
+                    let sent = false;
+
                     fetch('https://contact-api-app.onrender.com/send-email', {
                         method: 'POST',
-                        mode: "cors", // no-cors, *cors, same-origin
-                        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-                        credentials: "same-origin", // include, *same-origin, omit
+                        mode: "cors",
+                        cache: "no-cache",
+                        credentials: "same-origin",
                         headers: {
                             "Content-Type": "application/json",
-                            // 'Content-Type': 'application/x-www-form-urlencoded',
                         },
                         body: JSON.stringify(body)
                     }).then(res => {
+                        sent = true;
                         button.innerHTML = 'Submit';
                         console.log(res);
                         alerts.push({
@@ -738,36 +740,76 @@
                                 message: 'Message sent successfully',
                                 type: 'success'
                             });
-                        console.log(alerts);
                         renderAlert(alerts);
                         document.querySelectorAll('.Contact__input').forEach(i => {
                             i.value = '';
                         });
-                    })
+                    });
+                    setTimeout(() => {
+                        if(!sent) {
+                            alerts.push(
+                                {
+                                    message: 'Please wait for the server to wake up!',
+                                    type: 'warning'
+                                }
+                            );
+                            renderAlert(alerts);
+                        }
+                    }, 5000);
                 } else {
                     return;
                 }
             }
         })();
 
-        function renderAlert(alerts) {
-            console.log(alertSection)
+
+
+        function renderAlert(currentAlerts) {
+            console.log(alerts);
             alertSection.innerHTML = '';
-            alerts.map(alert => {
+            currentAlerts.map(alert => {
                 const markup = `
                     <p class='Alert Alert__${alert.type}'>${alert.message}</p>
                 `;
                 alertSection.insertAdjacentHTML('beforeend', markup);
 
                 setTimeout(() => {
-                    alerts = alerts.filter(al => al.id !== alert.id);
-
+                    alerts = currentAlerts.filter(al => al.id != alert.id);
                     renderAlert(alerts);
-                }, 5000)
+                }, 5000);
             });
         }
 
         renderAlert(alerts);
+        function updateMarkUp(alerts) {
+
+            const alertsMarkup = renderAlert(alerts);
+
+            const newDOM = document.createRange().createContextualFragment(alertsMarkup);
+            const newElements = Array.from(newDOM.querySelectorAll('*'));
+            const curElements = Array.from(alertSection.querySelectorAll('*'));
+
+            newElements.forEach((newEl, i) => {
+                const curEl = curElements[i];
+                // console.log(curEl, newEl.isEqualNode(curEl));
+
+                // Updates changed TEXT
+                if (
+                    !newEl.isEqualNode(curEl) &&
+                    newEl.firstChild?.nodeValue.trim() !== ''
+                ) {
+                    // console.log('💥', newEl.firstChild.nodeValue.trim());
+                    curEl.textContent = newEl.textContent;
+                }
+
+                // Updates changed ATTRIBUES
+                if (!newEl.isEqualNode(curEl))
+                    Array.from(newEl.attributes).forEach(attr =>
+                        curEl.setAttribute(attr.name, attr.value)
+                    );
+            });
+        }
+
     }, 2000);
 })();
 
