@@ -371,7 +371,37 @@
                 react: false,
                 fullstack: false,
                 js: false
-            }
+            },
+            {
+                id: 5,
+                name: 'eqraa',
+                link: 'https://hilarious-pastelito-5bcedf.netlify.app/',
+                github: 'https://github.com/ahmed-gomaa2/bookstore',
+                img: 'images/projects/eqraa.jpg',
+                responsive: true,
+                css: true,
+                css3: true,
+                html: true,
+                html5: true,
+                react: true,
+                fullstack: false,
+                js: true
+            },
+            {
+                id: 6,
+                name: 'employ',
+                link: 'https://642ecdd80a8d0d42a49ef566--frabjous-fudge-fb1061.netlify.app/',
+                github: 'https://github.com/ahmed-gomaa2/EmployMe',
+                img: 'images/projects/employ.jpg',
+                responsive: true,
+                css: true,
+                css3: true,
+                html: true,
+                html5: true,
+                react: true,
+                fullstack: false,
+                js: true
+            },
         ];
 
         let filtering = false;
@@ -738,6 +768,7 @@
                         button.disabled = false;
                         button.innerHTML = 'Submit';
                         sent = true;
+                        console.log(res);
                         alerts.push({
                                 id: alerts.length - 1 >= 0 ? alerts.length - 1 + 1 : 0,
                                 message: 'Message sent successfully',
