@@ -399,7 +399,7 @@
                 html: true,
                 html5: true,
                 react: true,
-                fullstack: false,
+                fullstack: true,
                 js: true
             },
         ];
