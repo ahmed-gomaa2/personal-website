@@ -30,6 +30,8 @@ a:hover {
 
 section {
     transition: 0.4s;
+    margin-top: 70px;
+    padding-top: 70px;
 }
 
 .section--hidden {

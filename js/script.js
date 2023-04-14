@@ -16,12 +16,11 @@
                 <div class="Header__nav-overlay"></div>
                 <div class="Header__nav">
                     <ul class="Header__nav-list">
-                        <li class="Header__nav-item"><a href="#" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>01. about</a></li>
-                        <li class="Header__nav-item"><a href="#" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>02. skills</a></li>
-                        <li class="Header__nav-item"><a href="#" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>03. services</a></li>
-                        <li class="Header__nav-item"><a href="#" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>04. portfolio</a></li>
-                        <li class="Header__nav-item"><a href="#" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>05. reviews</a></li>
-                        <li class="Header__nav-item"><a href="#" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>06. contact</a></li>
+                        <li class="Header__nav-item"><a href="#about" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>01. about</a></li>
+                        <li class="Header__nav-item"><a href="#services" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>03. services</a></li>
+                        <li class="Header__nav-item"><a href="#portfolio" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>04. portfolio</a></li>
+                        <li class="Header__nav-item"><a href="#reviews" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>05. reviews</a></li>
+                        <li class="Header__nav-item"><a href="#contact" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>06. contact</a></li>
                     </ul> <!-- /Header__nav-list -->
                     <p class="Header__nav-cancel"><i class="fas fa-window-close"></i></p>
                 </div> <!-- /Header__nav -->
@@ -53,7 +52,7 @@
             </div> <!-- /Main__container -->
         </main> <!-- /Main -->
         <!-- ****************************************************** -->
-        <section class="About">
+        <section class="About" id="about"> 
             <div class="About__container mx-auto col-lg-8 col-md-9 col-10">
                 <div class="About__left">
                     <div class="About__header Header">
@@ -86,7 +85,7 @@
                 </div> <!-- /About__right -->
             </div> <!-- /About__container -->
         </section> <!-- /About -->
-        <section class="Projects">
+        <section class="Projects" id="portfolio">
             <div class="Projects__container mx-auto col-lg-8 col-md-9 col-10">
                 <div class="Projects__header Header">
                     <h2><span>02.</span> Projects</h2>
@@ -157,7 +156,7 @@
                 </div> <!-- /Projects__items -->
             </div> <!-- /Projects__container -->
         </section> <!-- /Projects -->
-        <section class="Services w-100 ">
+        <section class="Services w-100 " id="services">
             <div class="Services__container py-3 mx-auto col-lg-8 col-md-9 col-10">
                 <div class="Services__header Header">
                     <h2><span>03.</span> services</h2>
@@ -192,7 +191,7 @@
                 </div>
             </div> <!-- /Services__container -->
         </section> <!-- /Services-->
-                <section class="Contact pb-3 w-100">
+        <section class="Contact pb-3 w-100" id="contact">
             <div class="Contact__container py-3 mx-auto col-lg-8 col-md-9 col-10">
                 <div class="Contact__header Header">
                     <h2><span>0.4</span> contact me</h2>
