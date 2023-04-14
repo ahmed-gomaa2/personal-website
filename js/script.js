@@ -17,8 +17,8 @@
                 <div class="Header__nav">
                     <ul class="Header__nav-list">
                         <li class="Header__nav-item"><a href="#about" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>01. about</a></li>
-                        <li class="Header__nav-item"><a href="#services" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>03. services</a></li>
                         <li class="Header__nav-item"><a href="#portfolio" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>04. portfolio</a></li>
+                        <li class="Header__nav-item"><a href="#services" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>03. services</a></li>
                         <li class="Header__nav-item"><a href="#reviews" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>05. reviews</a></li>
                         <li class="Header__nav-item"><a href="#contact" class="Header__nav-link"><span class="Header__nav-link--top"></span><span class="Header__nav-link--bottom"></span><span class="Header__nav-link--left"></span><span class="Header__nav-link--right"></span>06. contact</a></li>
                     </ul> <!-- /Header__nav-list -->
